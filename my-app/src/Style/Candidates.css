@@ -1,0 +1,299 @@
+.candidates-container {
+    padding: 30px;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.candidates-header h1 {
+    font-size: 2rem;
+    color: #0a3d18;
+    margin-bottom: 0.3rem;
+}
+
+.candidates-header p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* SEARCH + ADD CONTROLS */
+.candidates-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.candidates-search {
+    padding: 8px 12px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.candidates-add-btn {
+    background-color: #0a3d18;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.candidates-add-btn:hover {
+    background-color: #097129;
+}
+
+/* TABLE */
+.candidates-table-container {
+    overflow-x: auto;
+}
+
+.candidates-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.candidates-table th,
+.candidates-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.candidates-table th {
+    background-color: #0a3d18;
+    color: white;
+    font-weight: 600;
+}
+
+.candidates-table img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #0a3d18;
+}
+
+/* STATUS BADGES (OPTIONAL) */
+.status-label {
+    font-weight: 500;
+}
+
+.status-approved {
+    color: green;
+}
+
+.status-pending {
+    color: #888;
+}
+
+/* ACTION BUTTONS */
+.action-btn {
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-btn.edit {
+    background-color: #129c16;
+    color: white;
+}
+
+.action-btn.edit:hover {
+    background-color: #0e7c13;
+}
+
+.action-btn.delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+.action-btn.delete:hover {
+    background-color: #c9302c;
+}
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(16, 44, 87, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    max-width: 470px;
+    width: 90%;
+    padding: 24px 28px;
+    box-shadow: 0 10px 30px rgba(16, 44, 87, 0.15);
+    position: relative;
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0a3d18;
+    margin-bottom: 20px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    font-weight: bold;
+    color: #0a3d18;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #0e7c13;
+}
+
+/* FORM */
+
+.modal-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #0a3d18;
+    font-size: 14px;
+}
+
+.modal-form input[type="text"],
+.modal-form input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-form input[type="text"]:focus {
+    outline: none;
+    border-color: #0a3d18;
+}
+
+.form-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.input-fullname {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-box {
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    background: #f8f8f8;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.25s ease;
+    overflow: hidden;
+}
+
+.image-box:hover {
+    border-color: #0a3d18;
+}
+
+.image-placeholder {
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    padding: 8px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0a3d18;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.save-btn:hover {
+    background-color: #0e7c13;
+}
+
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #129c16;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.pagination-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    margin: 0 3px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.pagination-btn.active,
+.pagination-btn:hover {
+    background-color: #129c16;
+    color: white;
+    border-color: #0a7311;
+}
