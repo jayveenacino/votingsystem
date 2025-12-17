@@ -11,6 +11,7 @@ import Dashboard from './Dashboard';
 import Voters from './Voters';
 import Results from './Results';
 import Candidates from './Candidates';
+import axios from 'axios';
 
 function AppRoutes() {
     useEffect(() => {
