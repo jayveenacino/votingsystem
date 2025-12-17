@@ -9,7 +9,7 @@ export default function Results() {
     useEffect(() => {
         const fetchResults = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/results');
+                const res = await axios.get('results');
                 setResults(res.data);
             } catch (err) {
                 console.error('Failed to fetch results:', err);

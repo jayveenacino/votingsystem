@@ -11,7 +11,7 @@ export default function Voters() {
 
     const fetchVoters = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/voters');
+            const res = await axios.get('voters');
             setVoters(res.data);
         } catch (err) {
             console.error('Error fetching voters:', err);
@@ -34,7 +34,7 @@ export default function Voters() {
 
         if (confirm.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/voters/${id}`);
+                await axios.delete(`voters/${id}`);
                 setVoters(prev => prev.filter(voter => voter._id !== id));
                 Swal.fire('Deleted!', 'Voter has been deleted.', 'success');
             } catch (err) {
@@ -57,7 +57,7 @@ export default function Voters() {
 
         if (confirm.isConfirmed) {
             try {
-                await axios.delete('http://localhost:5000/voters');
+                await axios.delete('voters');
                 await fetchVoters();
                 Swal.fire('Deleted!', 'All voters have been deleted.', 'success');
             } catch (err) {

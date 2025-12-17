@@ -21,7 +21,7 @@ export default function Election() {
     useEffect(() => {
         const fetchCandidates = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/candidates');
+                const res = await axios.get('candidates');
                 setCandidates(res.data);
             } catch (err) {
                 console.error('Failed to fetch candidates:', err);
@@ -72,12 +72,12 @@ export default function Election() {
             for (const [position, value] of voteEntries) {
                 if (Array.isArray(value)) {
                     for (const candidateId of value) {
-                        await axios.put(`http://localhost:5000/candidates/${candidateId}`, {
+                        await axios.put(`candidates/${candidateId}`, {
                             $inc: { votes: 1 }
                         });
                     }
                 } else {
-                    await axios.put(`http://localhost:5000/candidates/${value}`, {
+                    await axios.put(`candidates/${value}`, {
                         $inc: { votes: 1 }
                     });
                 }

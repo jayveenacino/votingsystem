@@ -25,7 +25,7 @@ export default function Candidates() {
     const fetchCandidates = async () => {
         setLoading(true);
         try {
-            const res = await axios.get('http://localhost:5000/candidates');
+            const res = await axios.get('candidates');
             setCandidates(res.data);
         } catch (err) {
             console.error('Error fetching candidates:', err);
@@ -81,7 +81,7 @@ export default function Candidates() {
 
         if (confirm.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/candidates/${id}`);
+                await axios.delete(`candidates/${id}`);
                 await fetchCandidates();
                 Swal.fire('Deleted!', 'Candidate has been removed.', 'success');
             } catch (err) {
@@ -94,10 +94,10 @@ export default function Candidates() {
     const handleSave = async () => {
         try {
             if (isEditing) {
-                await axios.put(`http://localhost:5000/candidates/${editingId}`, form);
+                await axios.put(`candidates/${editingId}`, form);
                 Swal.fire('Success!', 'Candidate updated successfully.', 'success');
             } else {
-                await axios.post('http://localhost:5000/candidates', form);
+                await axios.post('candidates', form);
                 Swal.fire('Success!', 'Candidate added successfully.', 'success');
             }
             setShowModal(false);

@@ -50,18 +50,17 @@ export default function Register() {
                 didOpen: () => Swal.showLoading()
             });
 
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch('register', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
             Swal.close();
 
             if (response.ok) {
-                const data = await response.json(); 
+                const data = await response.json();
 
-                localStorage.setItem('voterName', formData.fullName); 
+                localStorage.setItem('voterName', formData.fullName);
                 localStorage.setItem('voterID', formData.studentNumber);
 
                 await Swal.fire({

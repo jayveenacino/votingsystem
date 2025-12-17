@@ -21,8 +21,8 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const votersRes = await axios.get('http://localhost:5000/voters');
-                const candidatesRes = await axios.get('http://localhost:5000/candidates');
+                const votersRes = await axios.get('voters');
+                const candidatesRes = await axios.get('candidates');
 
                 const courseCount = { BSCS: 0, BSED: 0, BSHM: 0, BSBA: 0 };
 

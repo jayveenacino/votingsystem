@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Root from './Root';
 import Register from './Register';
@@ -13,6 +13,10 @@ import Results from './Results';
 import Candidates from './Candidates';
 
 function AppRoutes() {
+    useEffect(() => {
+        axios.defaults.baseURL = import.meta.env.VITE_API_URL
+        axios.defaults.headers.common['Content-Type'] = 'application/json'
+    }, [])
     return (
         <Routes>
             {/* Public / User Routes */}
