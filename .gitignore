@@ -1,1 +1,44 @@
-node_modules
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build and Output
+dist/
+build/
+.cache/
+out/
+
+# Environment variables (CRITICAL: Never commit these)
+# .env
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
+# *.env
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output
+
+# Optional: TypeScript build info
+*.tsbuildinfo
