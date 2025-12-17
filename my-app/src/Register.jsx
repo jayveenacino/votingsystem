@@ -25,6 +25,7 @@ export default function Register() {
 
         const { fullName, studentNumber, course, yearLevel } = formData;
 
+        // Frontend validation
         if (!fullName || !studentNumber || !course || !yearLevel) {
             Swal.fire({
                 icon: 'warning',
@@ -50,8 +51,12 @@ export default function Register() {
                 didOpen: () => Swal.showLoading()
             });
 
-            const response = await fetch('register', {
+            // Updated fetch URL to match backend port (5000)
+            const response = await fetch('http://192.168.100.82:5000/register', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(formData)
             });
 
@@ -77,9 +82,9 @@ export default function Register() {
                 const result = await response.json();
                 let errorText = 'Already registered!';
 
-                if (result.message === 'fullName') {
+                if (result.message.includes('fullName')) {
                     errorText = 'This full name is already registered!';
-                } else if (result.message === 'studentNumber') {
+                } else if (result.message.includes('studentNumber')) {
                     errorText = 'This student number is already registered!';
                 }
 
@@ -87,6 +92,21 @@ export default function Register() {
                     icon: 'error',
                     title: 'Registration Error',
                     text: errorText,
+                });
+            }
+            else if (response.status === 400) {
+                const result = await response.json();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Input',
+                    text: result.message || 'Check your input!',
+                });
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Server Error',
+                    text: 'Something went wrong.',
                 });
             }
         } catch (error) {
@@ -99,6 +119,7 @@ export default function Register() {
             });
         }
     };
+
 
     return (
         <div className="register-container">
